@@ -7,3 +7,6 @@ applications:
   instances: 1
   host: ProyectoFinal
   domain: eu-gb.mybluemix.net
+  services:
+    - Cloudant-q0
+    - Language Translator-bx
