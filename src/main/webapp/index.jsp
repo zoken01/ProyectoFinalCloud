@@ -7,7 +7,7 @@
 <title>Proyecto ASR new...</title>
 </head>
 <body>
-<h1>Ejemplaasda de Proyecto de ASR con Cloudant ahora con DevOpsCABEZA</h1>
+<h1>Ejemplaasda de Proyecto de ASR con Cloudant ahora con DevOpsCABEZ</h1>
 <hr />
 <p>Opciones sobre la base de datos Cloudant versión 2019:</p>
 <ul>
