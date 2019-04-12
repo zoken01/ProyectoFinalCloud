@@ -21,17 +21,17 @@ public class Traductor
 		else
 			return translate(translate(palabra,sourceModel,"en",conversational),"en",destModel,conversational); //translate to english, then to dest
 
-		//LanguageTranslator languageTranslator = new LanguageTranslator("2019-04-09");
+		LanguageTranslator languageTranslator = new LanguageTranslator("2019-04-09");
 		//languageTranslator.setUsernameAndPassword("f9517b48-edbb-4d41-a984-9333637a96bb","vdMRqsy1jOFV");
 		
-		IamOptions options = new IamOptions.Builder()
-				  .apiKey("<UB12ufk08DhdX8DbVsmHaHd77THH2Vg-m2BN7Kdd3clh>")
-				  .url("https://gateway-lon.watsonplatform.net/language-translator/api") // optional - the default value is https://iam.bluemix.net/identity/token
+		IamOptions iamOptions = new IamOptions.Builder()
+				  .apiKey("UB12ufk08DhdX8DbVsmHaHd77THH2Vg-m2BN7Kdd3clh")
+				  //.url("https://gateway-lon.watsonplatform.net/language-translator/api") // optional - the default value is https://iam.bluemix.net/identity/token
 				  .build();
-		LanguageTranslator languageTranslator = new LanguageTranslator("2019-04-09", options);
+		
+		languageTranslator.setIamCredentials(iamOptions);
 
-
-		//languageTranslator.setEndPoint("https://gateway.watsonplatform.net/language-translator/api");
+		languageTranslator.setEndPoint("https://gateway-lon.watsonplatform.net/language-translator/api");
 		
 		TranslateOptions translateOptions = new
 		TranslateOptions.Builder()
