@@ -10,3 +10,4 @@ applications:
   services:
     - Cloudant-q0
     - Language Translator-bx
+    - Text to Speech-6e
