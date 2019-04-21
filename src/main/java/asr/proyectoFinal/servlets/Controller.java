@@ -22,6 +22,7 @@ import asr.proyectoFinal.dao.CloudantPalabraStore;
 import asr.proyectoFinal.dominio.Palabra;
 import asr.proyectoFinal.services.Traductor;
 import asr.proyectoFinal.services.Conversion;
+import asr.proyectoFinal.services.Recognition;
 
 /**
  * Servlet implementation class Controller
@@ -67,6 +68,7 @@ public class Controller extends HttpServlet {
 						store.persist(palabra);
 					    out.println(String.format("Almacenada la palabra: %s", palabra.getName()));
 					    Conversion.conversionToSpeech(palabra.getName());
+					    Recognition.visualRecognition();
 					}
 				}
 				break;

@@ -11,3 +11,4 @@ applications:
     - Cloudant-q0
     - Language Translator-bx
     - Text to Speech-6e
+    - Visual Recognition-t9
