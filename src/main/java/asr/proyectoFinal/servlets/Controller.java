@@ -66,7 +66,7 @@ public class Controller extends HttpServlet {
 						palabra.setName(parametro);
 						store.persist(palabra);
 					    out.println(String.format("Almacenada la palabra: %s", palabra.getName()));
-					    Conversion.conversionToSpeech();
+					    Conversion.conversionToSpeech(palabra.getName());
 					}
 				}
 				break;
