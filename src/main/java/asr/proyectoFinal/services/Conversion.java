@@ -61,6 +61,7 @@ public class Conversion
 			  int length;
 			  while ((length = in.read(buffer)) > 0) {
 			    out.write(buffer, 0, length);
+			    //out.flush();
 			  }
 
 			  out.close();
