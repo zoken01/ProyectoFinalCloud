@@ -1,6 +1,7 @@
 package asr.proyectoFinal.servlets;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -15,10 +16,7 @@ import asr.proyectoFinal.services.Traductor;
 import asr.proyectoFinal.services.Conversion;
 import asr.proyectoFinal.services.Recognition;
 
-/**
- * Servlet implementation class Controller
- */
-@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar"})
+@WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -76,11 +74,9 @@ public class Controller extends HttpServlet {
 		
 		System.out.println("ha introducido: " + text1);
 		
-		Conversion.conversionToSpeech(text1);
+		InputStream mp3stream = Conversion.conversionToSpeech(text1);
 		
-		System.out.println("conversion ok");
-		
-		response.sendRedirect("index.jsp");
+		request.setAttribute("mp3stream", mp3stream);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
-
 }

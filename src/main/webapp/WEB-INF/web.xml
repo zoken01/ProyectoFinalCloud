@@ -7,12 +7,12 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
+<!--   <servlet>
   	<servlet-name>Controller</servlet-name>
   	<servlet-class>asr.proyectoFinal.servlets.Controller</servlet-class>
   </servlet>
   <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
-   </servlet-mapping>
+   </servlet-mapping>-->
 </web-app>

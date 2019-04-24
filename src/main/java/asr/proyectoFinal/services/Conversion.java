@@ -32,7 +32,7 @@ public class Conversion
         }
         return tempFile;
     }
-	public static void conversionToSpeech(String palabra)
+	public static InputStream conversionToSpeech(String palabra)
 	{
 	    
 		IamOptions options = new IamOptions.Builder()
@@ -42,58 +42,59 @@ public class Conversion
 		TextToSpeech textToSpeech = new TextToSpeech(options);
 		textToSpeech.setEndPoint("https://gateway-lon.watsonplatform.net/text-to-speech/api");
 
-		FileOutputStream fos = null;
-		File file;
-		OutputStream out = null;
+		//FileOutputStream fos = null;
+		//File file;
+		//OutputStream out = null;
+		InputStream in = null;
 		  
 		try {
 			  SynthesizeOptions synthesizeOptions =
 			    new SynthesizeOptions.Builder()
 			      .text(palabra)
-			      .accept("audio/wav")
+			      .accept("audio/webm")
 			      .voice("en-US_AllisonVoice")
 			      .build();
 
 			  InputStream inputStream = textToSpeech.synthesize(synthesizeOptions).execute();
-			  InputStream in = WaveUtils.reWriteWaveHeader(inputStream);
-			  
-			  file = File.createTempFile("audio-", ".wav");
-			  
-			  if (!file.exists()) 
-			  {
-				  file.createNewFile();
-				  System.out.println("CREATED TEMP FILE" + file);				  
-			  }
-			  fos = new FileOutputStream(file);
+			  in = WaveUtils.reWriteWaveHeader(inputStream);
 			  	  
-			  out = fos;
-			  
-			  byte[] buffer = new byte[1024];
-			  int length;
-			  while ((length = in.read(buffer)) > 0) {
-			    out.write(buffer, 0, length);
-			    //out.flush();
-			  }
-			  
-			  try {
-				  System.out.println("TRYING TO PLAY FILE");
-				  File fltemp = stream2file(in);
-				  Media hit = new Media(fltemp.toURI().toString());
-				  
-				  MediaPlayer mediaPlayer = new MediaPlayer(hit);
-				  mediaPlayer.play();
-				}catch (IOException e) {
-					e.printStackTrace();
-				}
-
-			  out.close();
-			  in.close();
-			  inputStream.close();
+//			  file = File.createTempFile("audio-", ".wav");
+//			  
+//			  if (!file.exists()) 
+//			  {
+//				  file.createNewFile();
+//				  System.out.println("CREATED TEMP FILE" + file);				  
+//			  }
+//			  fos = new FileOutputStream(file);
+//			  	  
+//			  out = fos;
+//			  
+//			  byte[] buffer = new byte[1024];
+//			  int length;
+//			  while ((length = in.read(buffer)) > 0) {
+//			    out.write(buffer, 0, length);
+//			    //out.flush();
+//			  }
+//			  
+//			  try {
+//				  System.out.println("TRYING TO PLAY FILE");
+//				  File fltemp = stream2file(in);
+//				  Media hit = new Media(fltemp.toURI().toString());
+//				  
+//				  MediaPlayer mediaPlayer = new MediaPlayer(hit);
+//				  mediaPlayer.play();
+//				}catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//
+//			  out.close();
+//			  in.close();
+//			  inputStream.close();
 			  
 			} catch (IOException e) {
 			  e.printStackTrace();
 			}
-		
+		return in;
 	}
 	
 	public static void playMP(InputStream in) {
