@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifiedImages;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyOptions;
+
+import org.json.*;
 
 
 public class Recognition
@@ -53,8 +57,13 @@ public class Recognition
 		  .build();
 		ClassifiedImages result = service.classify(classifyOptions).execute();
 		System.out.println(result);
+		
 		System.out.println("=================");
-		//System.out.println(result.getClass());
+		
+		JSONObject object = new JSONObject(result);
+		String clase = object.getJSONObject("images").getJSONObject("classifiers").getJSONObject("classes").getString("class");
+		
+		System.out.println(clase);
 		}
 		catch (IOException e) {
 			  e.printStackTrace();
