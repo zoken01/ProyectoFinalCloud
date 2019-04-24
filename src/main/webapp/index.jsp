@@ -38,7 +38,7 @@
                 <nav class="navbar">
                     <div class="tm-navbar-bg">
                         
-                        <a class="navbar-brand text-uppercase" href="#"><i class="fa fa-gears tm-brand-icon"></i>Multi Color</a>
+                        <a class="navbar-brand text-uppercase" href="#"><i class="fa fa-gears tm-brand-icon"></i>Funglish</a>
 
                         <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
                             &#9776;
@@ -77,8 +77,16 @@
                                 <div class="tm-img-gallery gallery-one">
                                 <!-- Gallery One pop up connected with JS code below -->                                    
                                     <div class="tm-img-gallery-info-container">                                    
-                                        <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Multi Color Image Gallery</span></h2>
-                                        <p class="tm-text">This responsive HTML template includes three gallery pages. Multi color is designed by Tooplate. You may use this layout for your website.
+                                        <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Funglish: aprende inglés de manera iteractiva y divertida.</span></h2>
+										<form action="Controller" method="post">
+										  <div>
+										  	Palabra que se va a reproducir<br>
+										  	<div><input type="text" name="t2speech" /> <br></div>
+											<div><input type="submit" value="Submit" /> </div>
+										  </div>
+										  <% System.out.println("INDEX JSP FINAL DEL FORM"); %>
+										</form>
+                                        <p class="tm-text">Haz click en las siguientes imágenes para escuchar su pronunciación en castellano y en inglés.
                                         </p>
                                     </div>
                                     <div class="grid-item">
@@ -600,9 +608,8 @@
                     <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
                 </div>
                 
-                <p class="tm-copyright-text">Copyright &copy; 2017 Your Company 
-                
-                 - Design: Tooplate</p>
+                <p class="tm-copyright-text">Designed by Victor Guizien &
+                Álvaro Barolomé at Silicon Valley.</p>
 
             </footer>
                     
