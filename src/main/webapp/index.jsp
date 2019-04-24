@@ -13,6 +13,18 @@
 <ul>
 <li><a href="listar">Listar</a></li>
 <li><a href="insertar?palabra=hola">Insertar</a></li>
+
+<form action="Controller" method="post">
+  <div>
+  	Palabra que se va a reproducir<br>
+  	<div><input type="text" name="t2speech" /> <br></div>
+	<div><input type="submit" value="Submit" /> </div>
+  </div>
+  
+  <% System.out.println("INDEX JSP FINAL DEL FORM"); %>
+</form>
+
+
 </ul>
 </body>
 </html>
