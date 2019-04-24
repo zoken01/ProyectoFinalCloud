@@ -6,10 +6,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifiedImages;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyOptions;
+
+import org.json.*;
 
 
 public class Recognition
@@ -30,7 +34,7 @@ public class Recognition
 		try
 		{
 		//file = new File("c:/Users/Álvaro/Documents/GitHub/ProyectoFinalCloud/src/main/java/asr/proyectoFinal/services/fruitbowl.jpg");
-		file = new File("c:/Users/Álvaro/Documents/GitHub/ProyectoFinalCloud/src/main/java/asr/proyectoFinal/services/casa.jpg");
+		file = new File("c:/Users/Álvaro/Documents/GitHub/ProyectoFinalCloud/src/main/java/asr/proyectoFinal/services/platano.jpg");
 		
 		System.out.println(file.exists());
 		  if (!file.exists()) 
@@ -44,15 +48,22 @@ public class Recognition
 		ClassifyOptions classifyOptions = new ClassifyOptions.Builder()
 		  .imagesFile(imagesStream)
 		  .imagesFilename("imagen")
-		  //.imagesFileContentType("food")
-		  //.url("aaa.com")
-		  //.threshold((float) 0.6)
-		  //.classifierIds(Arrays.asList("food"))
+		  //.imagesFileContentType("imagen")
+		  //.url("https://i.blogs.es/9e2919/platano/450_1000.jpg")
+		  .threshold((float) 0.9)
+		  //.classifierIds(Arrays.asList("imagen"))
 		  .owners(Arrays.asList("IBM"))
-		  //.acceptLanguage("yes")
+		  .acceptLanguage("ES")
 		  .build();
 		ClassifiedImages result = service.classify(classifyOptions).execute();
 		System.out.println(result);
+		
+		System.out.println("=================");
+		
+		JSONObject object = new JSONObject(result);
+		String clase = object.getJSONObject("images").getJSONObject("classifiers").getJSONObject("classes").getString("class");
+		
+		System.out.println(clase);
 		}
 		catch (IOException e) {
 			  e.printStackTrace();
