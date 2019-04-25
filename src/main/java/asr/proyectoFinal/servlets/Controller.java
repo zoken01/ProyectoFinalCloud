@@ -73,11 +73,16 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("METODO POST SERVLET CONTROLLER");
-		String text1 = request.getParameter("t2speech"); 
+		String input = request.getParameter("t2speech"); 
 		
-		System.out.println("ha introducido: " + text1);
-
-		InputStream mp3stream = Conversion.conversionToSpeech(text1);
+		System.out.println("ha introducido: " + input);
+		
+		// EESTA PARTE TRADUCE
+		// input = input.translate
+		
+		
+		// ESTA PARTE SINTETIZA EL TEXTO, CREA ARCHIVO MP3 Y LO ENVÍA AL JSP
+		InputStream mp3stream = Conversion.conversionToSpeech(input);
 		
 		String path_mp3 = request.getRealPath("/mp3");
 		
