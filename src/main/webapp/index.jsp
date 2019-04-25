@@ -90,7 +90,6 @@
 										</form>
 										<%
 										    if (request.getAttribute("mp3stream") != null) {
-										        InputStream mp3 = (InputStream)request.getAttribute("mp3stream");
 										        %>
 										        <div>
 										        	<audio controls>
