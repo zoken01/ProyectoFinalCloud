@@ -69,6 +69,8 @@
             </div> 
 
             <ul class="cd-hero-slider">
+            
+
 
                 <!-- Page 1 Gallery One -->
                 <li class="selected">                    
@@ -96,6 +98,9 @@
 													  <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
 													</audio>
 										        </div>
+										        <audio id="audio_play">
+												    <source src="mp3/temp.mp3" type="audio/mp3" />
+												</audio>
 										        <%
 										    }
 										%>
@@ -105,10 +110,9 @@
                                     <div class="grid-item">
                                         <figure class="effect-bubba">
                                             <img src="img/tm-img-01-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
+                                            <figcaption onClick="document.getElementById('audio_play').play(); return false;">
                                                 <h2 class="tm-figure-title">Image <span>One</span></h2>
                                                 <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-01.jpg">View more</a>
                                             </figcaption>           
                                         </figure>
                                     </div>

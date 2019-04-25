@@ -2,24 +2,15 @@ package asr.proyectoFinal.services;
 
 import com.ibm.watson.developer_cloud.text_to_speech.v1.TextToSpeech;
 import com.ibm.watson.developer_cloud.text_to_speech.v1.model.SynthesizeOptions;
-import com.ibm.watson.developer_cloud.text_to_speech.v1.util.WaveUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-
-import javax.servlet.http.HttpServletResponse;
 
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 
 import org.apache.commons.io.IOUtils;
-
-
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;;
-
 
 public class Conversion
 {
@@ -51,7 +42,7 @@ public class Conversion
 			    new SynthesizeOptions.Builder()
 			      .text(palabra)
 			      .accept("audio/mp3")
-			      .voice("es-ES_EnriqueVoice")
+			      .voice("en-US_MichaelV2Voice")
 			      .build();
 
 			  InputStream inputStream = textToSpeech.synthesize(synthesizeOptions).execute();
@@ -61,18 +52,6 @@ public class Conversion
 			  e.printStackTrace();
 			}
 		return in;
-	}
-	
-	public static void playMP(InputStream in) {
-		try {
-		  File fltemp = stream2file(in);
-		  Media hit = new Media(fltemp.toURI().toString());
-		  
-		  MediaPlayer mediaPlayer = new MediaPlayer(hit);
-		  mediaPlayer.play();
-		}catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }
 
