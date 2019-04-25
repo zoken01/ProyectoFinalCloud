@@ -13,9 +13,6 @@ import com.ibm.watson.developer_cloud.visual_recognition.v3.VisualRecognition;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifiedImages;
 import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyOptions;
 
-import org.json.*;
-
-
 public class Recognition
 {
 	public static void visualRecognition()
@@ -59,11 +56,6 @@ public class Recognition
 		System.out.println(result);
 		
 		System.out.println("=================");
-		
-		JSONObject object = new JSONObject(result);
-		String clase = object.getJSONObject("images").getJSONObject("classifiers").getJSONObject("classes").getString("class");
-		
-		System.out.println(clase);
 		}
 		catch (IOException e) {
 			  e.printStackTrace();

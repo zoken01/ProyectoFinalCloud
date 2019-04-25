@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="java.io.InputStream" %>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -86,6 +87,18 @@
 										  </div>
 										  <% System.out.println("INDEX JSP FINAL DEL FORM"); %>
 										</form>
+										<%
+										    if (request.getAttribute("mp3stream") != null) {
+										        InputStream mp3 = (InputStream)request.getAttribute("mp3stream");
+										        %>
+										        <div>
+										        	<audio controls>
+													  <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
+													</audio>
+										        </div>
+										        <%
+										    }
+										%>
                                         <p class="tm-text">Haz click en las siguientes imágenes para escuchar su pronunciación en castellano y en inglés.
                                         </p>
                                     </div>
@@ -631,6 +644,7 @@
         <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap js (v4-alpha.getbootstrap.com/) -->
         <script src="js/hero-slider-main.js"></script>          <!-- Hero slider (https://codyhouse.co/gem/hero-slider/) -->
         <script src="js/jquery.magnific-popup.min.js"></script> <!-- Magnific popup (http://dimsemenov.com/plugins/magnific-popup/) -->
+        <script src="js/play.js"></script>
         
         <script>
 

@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 
 import org.apache.commons.io.IOUtils;
@@ -42,56 +44,20 @@ public class Conversion
 		TextToSpeech textToSpeech = new TextToSpeech(options);
 		textToSpeech.setEndPoint("https://gateway-lon.watsonplatform.net/text-to-speech/api");
 
-		//FileOutputStream fos = null;
-		//File file;
-		//OutputStream out = null;
 		InputStream in = null;
 		  
 		try {
 			  SynthesizeOptions synthesizeOptions =
 			    new SynthesizeOptions.Builder()
 			      .text(palabra)
-			      .accept("audio/webm")
-			      .voice("en-US_AllisonVoice")
+			      .accept("audio/mp3")
+			      .voice("es-ES_EnriqueVoice")
 			      .build();
 
 			  InputStream inputStream = textToSpeech.synthesize(synthesizeOptions).execute();
-			  in = WaveUtils.reWriteWaveHeader(inputStream);
+			  in = inputStream;
 			  	  
-//			  file = File.createTempFile("audio-", ".wav");
-//			  
-//			  if (!file.exists()) 
-//			  {
-//				  file.createNewFile();
-//				  System.out.println("CREATED TEMP FILE" + file);				  
-//			  }
-//			  fos = new FileOutputStream(file);
-//			  	  
-//			  out = fos;
-//			  
-//			  byte[] buffer = new byte[1024];
-//			  int length;
-//			  while ((length = in.read(buffer)) > 0) {
-//			    out.write(buffer, 0, length);
-//			    //out.flush();
-//			  }
-//			  
-//			  try {
-//				  System.out.println("TRYING TO PLAY FILE");
-//				  File fltemp = stream2file(in);
-//				  Media hit = new Media(fltemp.toURI().toString());
-//				  
-//				  MediaPlayer mediaPlayer = new MediaPlayer(hit);
-//				  mediaPlayer.play();
-//				}catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//
-//			  out.close();
-//			  in.close();
-//			  inputStream.close();
-			  
-			} catch (IOException e) {
+			} catch (Exception e) {
 			  e.printStackTrace();
 			}
 		return in;

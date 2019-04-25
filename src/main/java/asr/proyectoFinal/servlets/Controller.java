@@ -1,7 +1,10 @@
 package asr.proyectoFinal.servlets;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -73,8 +76,23 @@ public class Controller extends HttpServlet {
 		String text1 = request.getParameter("t2speech"); 
 		
 		System.out.println("ha introducido: " + text1);
-		
+
 		InputStream mp3stream = Conversion.conversionToSpeech(text1);
+		
+		String path_mp3 = request.getRealPath("/mp3");
+		
+		System.out.println(path_mp3);
+		
+		OutputStream out = new FileOutputStream(new File(path_mp3 + "/temp.mp3"));
+		
+		byte[] buffer = new byte[2048];
+		  int length;
+		  while ((length = mp3stream.read(buffer)) > 0) {
+		    out.write(buffer, 0, length);
+		    //out.flush();
+		  }
+
+		out.close();
 		
 		request.setAttribute("mp3stream", mp3stream);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
