@@ -79,10 +79,12 @@ public class Controller extends HttpServlet {
 		
 		// EESTA PARTE TRADUCE
 		// input = input.translate
+		String trad = Traductor.translate(input, "es", "en", false);
 		
+		System.out.println(trad);
 		
 		// ESTA PARTE SINTETIZA EL TEXTO, CREA ARCHIVO MP3 Y LO ENVÍA AL JSP
-		InputStream mp3stream = Conversion.conversionToSpeech(input);
+		InputStream mp3stream = Conversion.conversionToSpeech(trad);
 		
 		String path_mp3 = request.getRealPath("/mp3");
 		

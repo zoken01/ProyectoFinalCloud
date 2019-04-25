@@ -41,7 +41,7 @@ public class Traductor
 
 		TranslationResult translationResult = languageTranslator.translate(translateOptions).execute();
 		
-		System.out.println(translationResult);
+//		System.out.println(translationResult);
 
 		String traduccionJSON = translationResult.toString();
 		JsonParser parser = new JsonParser();
