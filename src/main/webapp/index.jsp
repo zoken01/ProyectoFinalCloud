@@ -82,12 +82,19 @@
                                         <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Funglish: aprende inglés de manera iteractiva y divertida.</span></h2>
 										<form action="Controller" method="post">
 										  <div>
-										  	Palabra que se va a reproducir<br>
+										  	Frase que se va a traducir al inglés y reproducir:<br>
 										  	<div><input type="text" name="t2speech" /> <br></div>
 											<div><input type="submit" value="Submit" /> </div>
 										  </div>
-										  <% System.out.println("INDEX JSP FINAL DEL FORM"); %>
-										</form>
+								  		</form>
+								  		<form action="URLHandler" method="post">
+										  <div>
+										  	Introduce la URL:<br>
+										  	<div><input type="text" name="url" placeholder="URL de la imagen"/> <br></div>
+											<div><input type="submit" value="Submit" /> </div>
+										  </div>
+									  	</form>
+										
 										<%
 										    if (request.getAttribute("mp3stream") != null) {
 										        %>
@@ -102,9 +109,14 @@
 										        <%
 										    }
 										%>
-                                        <p class="tm-text">Haz click en las siguientes imágenes para escuchar su pronunciación en castellano y en inglés.
+                                        <p class="tm-text">Haz click en las siguientes imágenes para escuchar su descripción en inglés.
                                         </p>
                                     </div>
+                                    
+                                    
+                                    
+                                    
+                                    
                                     <div class="grid-item">
                                         <figure class="effect-bubba">
                                             <img src="img/tm-img-01-tn.jpg" alt="Image" class="img-fluid tm-img">
@@ -114,6 +126,11 @@
                                             </figcaption>           
                                         </figure>
                                     </div>
+                                    
+                                    
+                                    
+                                    
+                                    
                                     <div class="grid-item">
                                         <figure class="effect-bubba">
                                             <img src="img/tm-img-02-tn.jpg" alt="Image" class="img-fluid tm-img">

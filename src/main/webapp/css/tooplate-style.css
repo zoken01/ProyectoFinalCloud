@@ -494,6 +494,11 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
     font-size: 1.25em;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.figcpt {
+    cursor: pointer;
 }
 
 .grid-item figure {
