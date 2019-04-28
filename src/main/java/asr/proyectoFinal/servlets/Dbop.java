@@ -3,21 +3,15 @@ package asr.proyectoFinal.servlets;
 import java.io.IOException;
 import javax.servlet.ServletException;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cloudant.client.api.ClientBuilder;
 import com.cloudant.client.api.CloudantClient;
 import com.cloudant.client.api.Database;
-import com.google.gson.JsonObject;
 
 import asr.proyectoFinal.dao.CloudantDB;
-import asr.proyectoFinal.dominio.Palabra;
 import asr.proyectoFinal.dominio.URLImagen;
 
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ page import="java.util.List" %>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -104,8 +105,30 @@
 											<%
 										}%>
 										
+										<br><br>
+										<form action="ListImages" method="post">
+											<div><button type="submit">Descubre lo que se ha buscado anteriormente</button></div>
+										</form>
+										
+										<% if(request.getAttribute("urls")!=null){
+											for(String url:(List<String>)request.getAttribute("urls")){
+												%>
+													<div class="grid-item">
+				                                        <figure class="effect-bubba">
+				                                            <img src=<%=url %> alt="Image" class="img-fluid tm-img">
+				                                            <figcaption>
+				                                                <h2 class="tm-figure-title">Image <span>Two</span></h2>
+				                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
+				                                            </figcaption>
+				                                        </figure>
+				                                    </div>
+												<%
+											}
+										}%>
 										
 										<br><br>
+										
+										
                                         <h2 class="tm-text-title tm-gallery-title"><span class="tm-white">
                                         Además, puedes aprender 
                                         inglés de forma sencilla con las imágenes

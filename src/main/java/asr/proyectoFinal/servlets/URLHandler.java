@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import org.apache.commons.validator.routines.UrlValidator;
 
@@ -35,39 +36,40 @@ public class URLHandler extends HttpServlet {
 		UrlValidator urlValidator = new UrlValidator();
 		boolean urlOk = urlValidator.isValid(input);
 		boolean isImage = false;
+		boolean inDb = false;
 		
 		if(urlOk) {		
-				URLImagen url = new URLImagen();
-				CloudantDB cloudantDb = new CloudantDB();
-				
-//				Get default database
-				Database db = cloudantDb.getDB();
-				
-//				// Check if url already is in databse
-				
-				
-
-				
-//				In class object url, set the input url from user
-				url.setUrl(input);
-				
-				
-				
-				if(db.find(URLImagen.class, url.get_id()) != null) {
-					System.out.println("ok");
+			URLImagen url = new URLImagen();
+			CloudantDB cloudantDb = new CloudantDB();
+			
+//			Get default database
+			Database db = cloudantDb.getDB();
+			
+//			Check if url already is in database
+			url.setUrl(input);
+			
+			List<URLImagen> docs = null;
+			try {
+				docs = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(URLImagen.class);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			for(URLImagen urlImagen:docs) {
+				String str = urlImagen.getUrl();
+				if(str.trim().contains(input)) {
+					System.out.println("Este elemento ya está en la base de datos");
+					inDb = true;
 				}
-
-//				
-//				
-//				
-//				// Save url class in databse
-//				String id = db.save(url).getId();
-		    
+			}		
+			if(inDb == false) {
+//				Save url class in database
+				db.save(url);
+			}
+				
+			
 		}else {
 			error = "Please enter a valid URL";
 		}
-		
-		
 		request.setAttribute("error", error);
 		request.setAttribute("url", input);
 		request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -14,7 +14,7 @@ body {
 	overflow-x: hidden;
 }
 
-
+.ignore-css{all:unset;}
 
 .tm-white { color: #FFFFFF; }
 

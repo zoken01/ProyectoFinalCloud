@@ -34,4 +34,14 @@
     <url-pattern>/Dbop</url-pattern>
   </servlet-mapping>  
   
+  <servlet>
+    <servlet-name>ListImages</servlet-name>
+    <servlet-class>asr.proyectoFinal.servlets.ListImages</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListImages</servlet-name>
+    <url-pattern>/ListImages</url-pattern>
+  </servlet-mapping>  
+  
+  
 </web-app>
