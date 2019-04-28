@@ -8,23 +8,26 @@ import com.cloudant.client.api.Database;
 import com.google.gson.JsonObject;
 
 public class CloudantDB {
-
 	private Database db = null;
 	private static final String databaseName = "mydb";
+	private static CloudantClient client = null;
 	
 	public CloudantDB(){
-		CloudantClient cloudant = createClient();
-		if(cloudant!=null){
-		 db = cloudant.database(databaseName, true);
+		client = createClient();
+		if(client!=null){
+		 db = client.database(databaseName, true);
 		}
 	}
 	
 	public Database getDB(){
 		return db;
+	}	
+	
+	public CloudantClient getClient() {
+		return client;
 	}
 	
 	private static CloudantClient createClient() {
-		
 		String url;
 
 		if (System.getenv("VCAP_SERVICES") != null) {
@@ -47,7 +50,7 @@ public class CloudantDB {
 
 		try {
 			System.out.println("Connecting to Cloudant");
-			CloudantClient client = ClientBuilder.url(new URL(url)).build();
+			client = ClientBuilder.url(new URL(url)).build();
 			return client;
 		} catch (Exception e) {
 			System.out.println("Unable to connect to database");

@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.cloudant.client.api.Database;
 import com.cloudant.client.api.ClientBuilder;
 import com.cloudant.client.api.CloudantClient;
+import com.google.gson.JsonObject;
 
 import asr.proyectoFinal.dao.CloudantDB;
+import asr.proyectoFinal.dominio.Palabra;
+import asr.proyectoFinal.dominio.URLImagen;
 
 public class URLHandler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,21 +33,27 @@ public class URLHandler extends HttpServlet {
 		
 		System.out.println("url introducida: " + input);
 		
-		CloudantDB cloudant = new CloudantDB();
+		URLImagen url = new URLImagen();
+		CloudantDB cloudantDb = new CloudantDB();
 		
-		Database db = cloudant.getDB();
+		Database db = cloudantDb.getDB();
+				
+		url.setUrl(input);
+		String id = db.save(url).getId();
 		
-		db.save(input);
+		URLImagen test = db.find(URLImagen.class, id);
 		
-		List<String> urls = new ArrayList<>();
+		System.out.println("Put in databse: " + test);
 		
+		
+		List<URLImagen> docs = null;
 		try {
-			urls = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(String.class);
-		}catch (IOException e) {
-			System.out.println(e.getStackTrace());
+			docs = db.getAllDocsRequestBuilder().includeDocs(true).build().getResponse().getDocsAs(URLImagen.class);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
-		System.out.println(urls);
+		System.out.println("Things in databsae: " + docs);
+
 	}
 
 }
