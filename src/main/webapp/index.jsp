@@ -92,6 +92,21 @@
 	                                        <div><input type="text" name="url" placeholder="URL de la imagen"/> <br></div>
 											<div><input type="submit" value="Submit" /> </div>
 										</form>
+										<% System.out.println(request.getAttribute("error")); %>
+										<% if(request.getAttribute("error") != null){
+										%>
+										<div>
+											<span><%=request.getAttribute("error") %></span>
+										</div>
+										<%}else{%>
+											<figure>
+	                                            <img src=<%=request.getAttribute("url") %> alt="Image" class="img-fluid tm-img">          
+	                                        </figure>
+											<%
+										}%>
+										
+										
+										<br><br>
                                         <h2 class="tm-text-title tm-gallery-title"><span class="tm-white">
                                         Además, puedes aprender 
                                         inglés de forma sencilla con las imágenes
