@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+.block{
+	display:block;
+}
+
 img { max-width: 100%; }
 
 /* -------------------------------- 

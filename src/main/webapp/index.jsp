@@ -86,7 +86,9 @@
                                 <!-- Gallery One pop up connected with JS code below -->                                    
                                     <div class="tm-img-gallery-info-container">                                    
                                         <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Funglish: aprende inglés de manera iteractiva y divertida.</span></h2>
-
+									</div>
+									
+									<div class="tm-img-gallery-info-container">
                                         <form action="URLHandler" method="post">
 	                                        <p class="tm-text">¡Introduce la URL de la imagen con la que quieres aprender inglés!
 	                                        </p>
@@ -99,13 +101,19 @@
 											<span><%=request.getAttribute("error") %></span>
 										</div>
 										<%}else if(request.getAttribute("url") != null){%>
-											<figure>
-	                                            <img src=<%=request.getAttribute("url") %> alt="Image" class="img-fluid tm-img">          
-	                                        </figure>
+											<span>¡Haz clic en la imagen para escucharla en inglés!</span>
+											<form action="Controller" method="post">
+		                                        <div class="tm-img-gallery-info-container">
+		                                            <figure class="effect-bubba">
+		                                                <input type="image" src=<%=request.getAttribute("url")%> alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+		                                            </figure>
+		                                        </div>
+		                                    </form>
 											<%
 										}%>
+									</div>
 										
-										<br><br>
+									<div class="tm-img-gallery-info-container">
 										<form action="ListImages" method="post">
 											<div><button type="submit">Descubre lo que se ha buscado anteriormente</button></div>
 										</form>
@@ -113,35 +121,19 @@
 										<% if(request.getAttribute("urls")!=null){
 											for(String url:(List<String>)request.getAttribute("urls")){
 												%>
-													<div class="grid-item">
+													<div class="tm-img-gallery-info-container">
+														<div class="grid-item">
 				                                        <figure class="effect-bubba">
 				                                            <img src=<%=url %> alt="Image" class="img-fluid tm-img">
-				                                            <figcaption>
-				                                                <h2 class="tm-figure-title">Image <span>Two</span></h2>
-				                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-				                                            </figcaption>
 				                                        </figure>
+				                                        </div>
 				                                    </div>
 												<%
 											}
 										}%>
+									</div>	
 										
-										<%
-                                            if (request.getAttribute("mp3stream") != null) {
-                                                %>
-                                                <div>
-                                                    <audio controls>
-                                                      <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
-                                                    </audio>
-                                                </div>
-                                                <audio id="audio_play">
-                                                    <source src="mp3/temp.mp3" type="audio/mp3" />
-                                                </audio>
-                                                <%
-                                            }
-                                        %>
-										
-										<br><br>
+									<div class="tm-img-gallery-info-container">
 										
 										
                                         <h2 class="tm-text-title tm-gallery-title"><span class="tm-white">
@@ -150,6 +142,20 @@
                                         de prueba a continuación:
                                         </span></h2>
                                     </div>
+                                    
+                       				<%
+                                   	if (request.getAttribute("mp3stream") != null) {
+                                       %>
+                                       <div>
+                                           <audio controls autoplay>
+                                             <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
+                                           </audio>
+                                       </div>
+                                       <%
+                                         }
+                                     %>
+                                     
+                                     <br>
                        				
                        				<form action="Controller" method="post">
                                         <div class="grid-item">
