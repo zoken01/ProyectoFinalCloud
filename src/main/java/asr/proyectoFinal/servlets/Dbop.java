@@ -52,7 +52,7 @@ public class Dbop extends HttpServlet {
 			client.createDB("mydb");
 		}
 		
-		response.sendRedirect("/");
+		response.sendRedirect("index.jsp");
 	}
 
 }

@@ -92,13 +92,12 @@
 	                                        <div><input type="text" name="url" placeholder="URL de la imagen"/> <br></div>
 											<div><input type="submit" value="Submit" /> </div>
 										</form>
-										<% System.out.println(request.getAttribute("error")); %>
 										<% if(request.getAttribute("error") != null){
 										%>
 										<div>
 											<span><%=request.getAttribute("error") %></span>
 										</div>
-										<%}else{%>
+										<%}else if(request.getAttribute("url") != null){%>
 											<figure>
 	                                            <img src=<%=request.getAttribute("url") %> alt="Image" class="img-fluid tm-img">          
 	                                        </figure>
