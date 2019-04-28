@@ -126,6 +126,21 @@
 											}
 										}%>
 										
+										<%
+                                            if (request.getAttribute("mp3stream") != null) {
+                                                %>
+                                                <div>
+                                                    <audio controls>
+                                                      <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
+                                                    </audio>
+                                                </div>
+                                                <audio id="audio_play">
+                                                    <source src="mp3/temp.mp3" type="audio/mp3" />
+                                                </audio>
+                                                <%
+                                            }
+                                        %>
+										
 										<br><br>
 										
 										
@@ -135,172 +150,150 @@
                                         de prueba a continuación:
                                         </span></h2>
                                     </div>
-                       
+                       				
+                       				<form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="reloj">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/reloj.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="platano">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/platano.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
                                     
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-01-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption onClick="document.getElementById('audio_play').play(); return false;">
-                                                <h2 class="tm-figure-title">Image <span>One</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="taza">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/taza.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
                                     
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="bol">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/bol.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                      
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="planta">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/planta.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
                                     
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="tiburon">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/tiburon.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
                                     
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="bicho">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/bicho.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
                                     
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="perro">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/perro.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                       
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="carro">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/carro.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
                                     
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-02-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Two</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-02.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-03-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Three</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-03.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-04-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Four</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-04.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>  
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-05-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Five</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-05.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-06-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Six</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-06.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-07-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Seven</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-07.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-08-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Eight</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-08.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>   
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-09-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Nine</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-09.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-10-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Ten</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-10.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-11-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Eleven</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-11.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-12-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Twelve</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-12.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-13-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Thirteen</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-13.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-14-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Fourteen</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-14.jpg">View more</a>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-15-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Fifteen</span></h2>
-                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                                <a href="img/tm-img-15.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>
-                                    <div class="grid-item">
-                                        <figure class="effect-bubba">
-                                            <img src="img/tm-img-16-tn.jpg" alt="Image" class="img-fluid tm-img">
-                                            <figcaption>
-                                                <h2 class="tm-figure-title">Image <span>Sixteen</span></h2>
-                                                <p class="tm-figure-description">Maecenas purus sem, lobortis id odio in sapien.</p>
-                                                <a href="img/tm-img-16.jpg">View more</a>
-                                            </figcaption>           
-                                        </figure>
-                                    </div>                                                                       
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="llama">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/llama.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="coche">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/coche.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="casa">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/casa.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="paloma">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/paloma.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="zapatos">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/zapatos.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="tijeras">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/tijeras.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>
+                                    
+                                    <form action="Controller" method="post">
+                                        <div class="grid-item">
+                                            <input type="hidden" name="textoOculto" value="silla">
+                                            <figure class="effect-bubba">
+                                                <input type="image" src="img/silla.jpg" alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
+                                            </figure>
+                                        </div>
+                                    </form>                                                                      
                                 </div>                                 
                             </div>
                         </div>                                                    

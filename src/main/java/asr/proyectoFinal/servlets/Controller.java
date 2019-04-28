@@ -60,7 +60,6 @@ public class Controller extends HttpServlet {
 						store.persist(palabra);
 					    out.println(String.format("Almacenada la palabra: %s", palabra.getName()));
 					    Conversion.conversionToSpeech(palabra.getName());
-					    Recognition.visualRecognition();
 					}
 				}
 				break;
@@ -73,15 +72,20 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("METODO POST SERVLET CONTROLLER");
-		String input = request.getParameter("t2speech"); 
 		
-		System.out.println("ha introducido: " + input);
+		String textoOculto = request.getParameter("textoOculto");
+		
+		String path_image = request.getRealPath("/img");
+		System.out.println(path_image);
+		File file_image = new File(path_image + "/" + textoOculto + ".jpg");
+		String input = Recognition.visualRecognition(file_image);
+		System.out.println("Imagen reconocida: " + input);
 		
 		// EESTA PARTE TRADUCE
 		// input = input.translate
 		String trad = Traductor.translate(input, "es", "en", false);
 		
-		System.out.println(trad);
+		System.out.println("Imagen traducida: " + trad);
 		
 		// ESTA PARTE SINTETIZA EL TEXTO, CREA ARCHIVO MP3 Y LO ENVÍA AL JSP
 		InputStream mp3stream = Conversion.conversionToSpeech(trad);

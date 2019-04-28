@@ -432,7 +432,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
   	width: 100%;
   	height: auto;
   	border: none;
-  	margin: 0 auto;
+  	margin: 10px;
 }
 
 .tm-textbox-padding { padding: 35px 30px; }
@@ -510,7 +510,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 }
 
 figure.effect-bubba {
-    background-color: #9e5406;
+
 }
 
 .cd-hero-slider .selected .cd-full-width figure.effect-bubba h2.tm-figure-title {

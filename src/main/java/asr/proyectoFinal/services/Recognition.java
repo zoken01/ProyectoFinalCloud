@@ -20,7 +20,7 @@ public class Recognition
 {
 	private static final ObjectMapper mapper = new ObjectMapper();
 
-	public static void visualRecognition()
+	public static String visualRecognition(File file)
 	{
 		IamOptions options = new IamOptions.Builder()
 				.apiKey("8Q5h1hGZYnbDG-QGnaGSV1wX4fkJcCrFeNC9Zmi5OFGK")
@@ -29,16 +29,18 @@ public class Recognition
 		VisualRecognition service = new VisualRecognition("2018-03-19",options);
 		service.setEndPoint("https://gateway.watsonplatform.net/visual-recognition/api");
 		
-		File file;
+		//File file;
 		InputStream imagesStream = null;
 		FileInputStream fis = null;
+		
+		String clase = null;
 
 		try
 		{
 		//file = new File("c:/Users/Álvaro/Documents/GitHub/ProyectoFinalCloud/src/main/java/asr/proyectoFinal/services/fruitbowl.jpg");
-		file = new File("");
+		//file = new File("");
 		
-		System.out.println(file.exists());
+		//System.out.println(file.exists());
 		  if (!file.exists()) 
 		  {
 			  file.createNewFile();
@@ -57,10 +59,9 @@ public class Recognition
 		  .owners(Arrays.asList("IBM"))
 		  .acceptLanguage("ES")
 		  .build();
-		ClassifiedImages result = service.classify(classifyOptions).execute();
-		System.out.println("=================");	
+		ClassifiedImages result = service.classify(classifyOptions).execute();	
 		String resultString = result.toString();	
-		System.out.println(resultString);
+		//System.out.println(resultString);
 		
 		JsonNode root = mapper.readTree(resultString);
 		
@@ -78,7 +79,7 @@ public class Recognition
 						if (classes.isArray())
 						{
 							Double scoreMax = 0.0;
-							String clase = null;
+							clase = null;
 							for (JsonNode node3 : classes)
 							{
 								String score = node3.path("score").asText();
@@ -90,7 +91,7 @@ public class Recognition
 									clase = node3.path("class").asText();
 								}
 							}
-							System.out.println("Clase: " + clase);
+							//System.out.println("Clase: " + clase);
 						}
 					}
 				}
@@ -118,5 +119,6 @@ public class Recognition
 		catch (IOException e) {
 			  e.printStackTrace();
 		}
+		return clase;
 	}
 }
