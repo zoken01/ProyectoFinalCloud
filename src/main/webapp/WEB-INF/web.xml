@@ -25,4 +25,13 @@
     <url-pattern>/URLHandler</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>Dbop</servlet-name>
+    <servlet-class>asr.proyectoFinal.servlets.Dbop</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Dbop</servlet-name>
+    <url-pattern>/Dbop</url-pattern>
+  </servlet-mapping>  
+  
 </web-app>

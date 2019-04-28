@@ -74,48 +74,31 @@
                 <!-- Page 1 Gallery One -->
                 <li class="selected">                    
                     <div class="cd-full-width">
+                    
+                    <form action="Dbop" method="post">
+                    	<div><button name="op" type="submit" value="list_db">Listar base de datos</button></div>
+                    	<div><button name="op" type="submit" value="empty_db">Vaciar base de datos</button></div>
+                    </form>
                         <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
                             <div class="tm-img-gallery-container">
                                 <div class="tm-img-gallery gallery-one">
                                 <!-- Gallery One pop up connected with JS code below -->                                    
                                     <div class="tm-img-gallery-info-container">                                    
                                         <h2 class="tm-text-title tm-gallery-title tm-white"><span class="tm-white">Funglish: aprende inglés de manera iteractiva y divertida.</span></h2>
-										<form action="Controller" method="post">
-										  <div>
-										  	Frase que se va a traducir al inglés y reproducir:<br>
-										  	<div><input type="text" name="t2speech" /> <br></div>
+
+                                        <form action="URLHandler" method="post">
+	                                        <p class="tm-text">¡Introduce la URL de la imagen con la que quieres aprender inglés!
+	                                        </p>
+	                                        <div><input type="text" name="url" placeholder="URL de la imagen"/> <br></div>
 											<div><input type="submit" value="Submit" /> </div>
-										  </div>
-								  		</form>
-								  		<form action="URLHandler" method="post">
-										  <div>
-										  	Introduce la URL:<br>
-										  	<div><input type="text" name="url" placeholder="URL de la imagen"/> <br></div>
-											<div><input type="submit" value="Submit" /> </div>
-										  </div>
-									  	</form>
-										
-										<%
-										    if (request.getAttribute("mp3stream") != null) {
-										        %>
-										        <div>
-										        	<audio controls>
-													  <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
-													</audio>
-										        </div>
-										        <audio id="audio_play">
-												    <source src="mp3/temp.mp3" type="audio/mp3" />
-												</audio>
-										        <%
-										    }
-										%>
-                                        <p class="tm-text">Haz click en las siguientes imágenes para escuchar su descripción en inglés.
-                                        </p>
+										</form>
+                                        <h2 class="tm-text-title tm-gallery-title"><span class="tm-white">
+                                        Además, puedes aprender 
+                                        inglés de forma sencilla con las imágenes
+                                        de prueba a continuación:
+                                        </span></h2>
                                     </div>
-                                    
-                                    
-                                    
-                                    
+                       
                                     
                                     <div class="grid-item">
                                         <figure class="effect-bubba">
