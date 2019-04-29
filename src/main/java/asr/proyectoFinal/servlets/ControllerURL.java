@@ -102,7 +102,7 @@ public class ControllerURL extends HttpServlet {
 
 		out.close();
 		
-		request.setAttribute("mp3stream", mp3stream);
+		request.setAttribute("mp3streamURL", mp3stream);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 }

@@ -136,6 +136,18 @@
 									</div>	
 										
 									<div class="tm-img-gallery-info-container">
+									
+									<%
+                                   	if (request.getAttribute("mp3streamURL") != null) {
+                                       %>
+                                       <div>
+                                           <audio controls autoplay>
+                                             <source src="mp3/temp.mp3" id="mp3" type="audio/mp3">
+                                           </audio>
+                                       </div>
+                                       <%
+                                         }
+                                     %>
 										
 										
                                         <h2 style="display:flex" class="tm-text-title tm-gallery-title"><span class="tm-white">
