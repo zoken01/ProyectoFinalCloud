@@ -24,46 +24,7 @@ public class ControllerURL extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		PrintWriter out = response.getWriter();
-		out.println("<html><head><meta charset=\"UTF-8\"></head><body>");
 		
-		CloudantPalabraStore store = new CloudantPalabraStore();
-		System.out.println(request.getServletPath());
-		switch(request.getServletPath())
-		{
-			case "/listar":
-				if(store.getDB() == null)
-					  out.println("No hay DB");
-				else
-					out.println("Palabras en la BD Cloudant:<br />" + store.getAll());
-				break;
-				
-			case "/insertar":
-				Palabra palabra = new Palabra();
-				String parametro = request.getParameter("palabra");
-
-				if(parametro==null)
-				{
-					out.println("usage: /insertar?palabra=palabra_a_traducir");
-				}
-				else
-				{
-					if(store.getDB() == null) 
-					{
-						out.println(String.format("Palabra: %s", palabra));
-					}
-					else
-					{
-						parametro = Traductor.translate(parametro, "es", "en", false);
-						palabra.setName(parametro);
-						store.persist(palabra);
-					    out.println(String.format("Almacenada la palabra: %s", palabra.getName()));
-					    Conversion.conversionToSpeech(palabra.getName());
-					}
-				}
-				break;
-		}
-		out.println("</html>");
 	}
 
 	/**
