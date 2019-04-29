@@ -11,6 +11,11 @@ Primary style
 
 html { font-size: 62.5%; }
 
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+}
+
 body {
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;

@@ -75,11 +75,6 @@
                 <!-- Page 1 Gallery One -->
                 <li class="selected">                    
                     <div class="cd-full-width">
-                    
-                    <form action="Dbop" method="post">
-                    	<div><button name="op" type="submit" value="list_db">Listar base de datos</button></div>
-                    	<div><button name="op" type="submit" value="empty_db">Vaciar base de datos</button></div>
-                    </form>
                         <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
                             <div class="tm-img-gallery-container">
                                 <div class="tm-img-gallery gallery-one">
@@ -90,10 +85,12 @@
 									
 									<div class="tm-img-gallery-info-container">
                                         <form action="URLHandler" method="post">
-	                                        <p class="tm-text">¡Introduce la URL de la imagen con la que quieres aprender inglés!
-	                                        </p>
-	                                        <div><input type="text" name="url" placeholder="URL de la imagen"/> <br></div>
-											<div><input type="submit" value="Submit" /> </div>
+	                                        <div class="form-group">
+											  <label style="font-size: 18px;" stylefor="usr">¡Introduce la URL de la imagen con la que quieres aprender inglés!</label>
+											  <input type="text" class="form-control" name="url" placeholder="URL de la imagen">
+											</div>
+											
+											<button style="height:40px; font-size:16px" type="submit" class="btn btn-primary">Buscar</button>
 										</form>
 										<% if(request.getAttribute("error") != null){
 										%>
@@ -116,7 +113,7 @@
 										
 									<div class="tm-img-gallery-info-container">
 										<form action="ListImages" method="post">
-											<div><button type="submit">Descubre lo que se ha buscado anteriormente</button></div>
+											<button style="height:40px; font-size:16px" type="submit" class="btn btn-primary">Descubre lo que se ha buscado anteriormente</button>
 										</form>
 										
 										<% if(request.getAttribute("urls")!=null){
@@ -669,6 +666,10 @@
                     <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="tm-social-link"><i class="fa fa-behance"></i></a>
                     <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
+					<form action="Dbop" method="post">
+                    	<div><button name="op" type="submit" value="list_db">Listar base de datos</button></div>
+                    	<div><button name="op" type="submit" value="empty_db">Vaciar base de datos</button></div>
+                    </form>
                 </div>
                 
                 <p class="tm-copyright-text">Designed by Victor Guizien &
