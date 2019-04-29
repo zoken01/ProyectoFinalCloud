@@ -19,7 +19,6 @@ import asr.proyectoFinal.services.Traductor;
 import asr.proyectoFinal.services.Conversion;
 import asr.proyectoFinal.services.Recognition;
 
-@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar"})
 public class ControllerURL extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -74,7 +73,7 @@ public class ControllerURL extends HttpServlet {
 		System.out.println("METODO POST SERVLET CONTROLLER");
 		
 		//Aquí cogemos la URL de la imagen
-		String URL = request.getParameter(".........");
+		String URL = request.getParameter("urlName");
 
 		String input = Recognition.visualRecognitionURL(URL);
 		System.out.println("Imagen reconocida: " + input);

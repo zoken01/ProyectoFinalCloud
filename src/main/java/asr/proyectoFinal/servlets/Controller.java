@@ -19,7 +19,6 @@ import asr.proyectoFinal.services.Traductor;
 import asr.proyectoFinal.services.Conversion;
 import asr.proyectoFinal.services.Recognition;
 
-@WebServlet(urlPatterns = {"/listar", "/insertar", "/hablar"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

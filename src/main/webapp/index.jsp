@@ -102,8 +102,9 @@
 										</div>
 										<%}else if(request.getAttribute("url") != null){%>
 											<span>¡Haz clic en la imagen para escucharla en inglés!</span>
-											<form action="Controller" method="post">
+											<form action="ControllerURL" method="post">
 		                                        <div class="tm-img-gallery-info-container">
+		                                        	<input type="hidden" name="urlName" value=<%=request.getAttribute("url")%>>
 		                                            <figure class="effect-bubba">
 		                                                <input type="image" src=<%=request.getAttribute("url")%> alt="Image" class="img-fluid tm-img" name="imagenClick"/>          
 		                                            </figure>
