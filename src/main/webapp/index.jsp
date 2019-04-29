@@ -121,12 +121,12 @@
 										<% if(request.getAttribute("urls")!=null){
 											for(String url:(List<String>)request.getAttribute("urls")){
 												%>
-													<div class="tm-img-gallery-info-container">
-														<div class="grid-item">
+													<div class="grid-item">
+														<form action="Controller" method="post">
 				                                        <figure class="effect-bubba">
-				                                            <img src=<%=url %> alt="Image" class="img-fluid tm-img">
+				                                            <input type="image" src=<%=url %> alt="Image" class="img-fluid tm-img"/>
 				                                        </figure>
-				                                        </div>
+				                                        </form>
 				                                    </div>
 												<%
 											}
