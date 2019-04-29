@@ -665,10 +665,10 @@
                     <a href="#" class="tm-social-link"><i class="fa fa-google-plus"></i></a>
                     <a href="#" class="tm-social-link"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="tm-social-link"><i class="fa fa-behance"></i></a>
-                    <a href="#" class="tm-social-link"><i class="fa fa-linkedin"></i></a>
+                    <br>
+                    <br>
 					<form action="Dbop" method="post">
-                    	<div><button name="op" type="submit" value="list_db">Listar base de datos</button></div>
-                    	<div><button name="op" type="submit" value="empty_db">Vaciar base de datos</button></div>
+						<button name="op" type="submit" value="empty_db" class="tm-social-link"><i class="fa fa-linkedin"></i></button>
                     </form>
                 </div>
                 
