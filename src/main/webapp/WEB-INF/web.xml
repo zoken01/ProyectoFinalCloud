@@ -15,6 +15,15 @@
     <url-pattern>/Controller</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ControllerURL</servlet-name>
+    <servlet-class>asr.proyectoFinal.servlets.ControllerURL</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerURL</servlet-name>
+    <url-pattern>/ControllerURL</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>URLHandler</servlet-name>
     <servlet-class>asr.proyectoFinal.servlets.URLHandler</servlet-class>
   </servlet>
