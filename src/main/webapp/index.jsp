@@ -136,7 +136,7 @@
 									<div class="tm-img-gallery-info-container">
 										
 										
-                                        <h2 class="tm-text-title tm-gallery-title"><span class="tm-white">
+                                        <h2 style="display:flex" class="tm-text-title tm-gallery-title"><span class="tm-white">
                                         Además, puedes aprender 
                                         inglés de forma sencilla con las imágenes
                                         de prueba a continuación:
@@ -154,8 +154,6 @@
                                        <%
                                          }
                                      %>
-                                     
-                                     <br>
                        				
                        				<form action="Controller" method="post">
                                         <div class="grid-item">

@@ -6,7 +6,6 @@
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <servlet-name>Controller</servlet-name>
     <servlet-class>asr.proyectoFinal.servlets.Controller</servlet-class>
@@ -15,7 +14,6 @@
     <servlet-name>Controller</servlet-name>
     <url-pattern>/Controller</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>URLHandler</servlet-name>
     <servlet-class>asr.proyectoFinal.servlets.URLHandler</servlet-class>
@@ -24,7 +22,6 @@
     <servlet-name>URLHandler</servlet-name>
     <url-pattern>/URLHandler</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Dbop</servlet-name>
     <servlet-class>asr.proyectoFinal.servlets.Dbop</servlet-class>
@@ -32,8 +29,7 @@
   <servlet-mapping>
     <servlet-name>Dbop</servlet-name>
     <url-pattern>/Dbop</url-pattern>
-  </servlet-mapping>  
-  
+  </servlet-mapping>
   <servlet>
     <servlet-name>ListImages</servlet-name>
     <servlet-class>asr.proyectoFinal.servlets.ListImages</servlet-class>
@@ -41,7 +37,5 @@
   <servlet-mapping>
     <servlet-name>ListImages</servlet-name>
     <url-pattern>/ListImages</url-pattern>
-  </servlet-mapping>  
-  
-  
+  </servlet-mapping>
 </web-app>
