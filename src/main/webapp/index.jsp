@@ -121,9 +121,10 @@
 										
 										<% if(request.getAttribute("urls")!=null){
 											for(String url:(List<String>)request.getAttribute("urls")){
-												%>
+												System.out.println("url de la imagen" + url);%>
 													<div class="grid-item">
-														<form action="Controller" method="post">
+														<form action="ControllerURL" method="post">
+														<input type="hidden" name="urlName" value=<%=url%>>
 				                                        <figure class="effect-bubba">
 				                                            <input type="image" src=<%=url %> alt="Image" class="img-fluid tm-img"/>
 				                                        </figure>

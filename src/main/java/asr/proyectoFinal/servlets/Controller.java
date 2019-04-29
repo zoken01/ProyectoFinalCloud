@@ -30,14 +30,12 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("METODO POST SERVLET CONTROLLER");
-		
 		String textoOculto = request.getParameter("textoOculto");
 		
 		String path_image = request.getRealPath("/img");
-		System.out.println(path_image);
 		File file_image = new File(path_image + "/" + textoOculto + ".jpg");
 		String input = Recognition.visualRecognition(file_image);
+		
 		System.out.println("Imagen reconocida: " + input);
 		
 		// EESTA PARTE TRADUCE
@@ -53,17 +51,22 @@ public class Controller extends HttpServlet {
 		
 		System.out.println(path_mp3);
 		
-		OutputStream out = new FileOutputStream(new File(path_mp3 + "/temp.mp3"));
+		File f = new File(path_mp3 + "/temp.mp3");
+		
+		if (f != null) {
+			f.delete();
+			System.out.println("File deleted" + f);
+		}
+		OutputStream out = new FileOutputStream(f);
 		
 		byte[] buffer = new byte[2048];
-		  int length;
+		  int length = 0;
 		  while ((length = mp3stream.read(buffer)) > 0) {
 		    out.write(buffer, 0, length);
-		    //out.flush();
+		    out.flush();
 		  }
 
 		out.close();
-		
 		request.setAttribute("mp3stream", mp3stream);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

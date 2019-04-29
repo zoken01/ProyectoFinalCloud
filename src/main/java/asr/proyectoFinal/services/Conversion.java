@@ -27,7 +27,7 @@ public class Conversion
     }
 	public static InputStream conversionToSpeech(String palabra)
 	{
-	    
+	    System.out.println("====1" + palabra);
 		IamOptions options = new IamOptions.Builder()
 				.apiKey("8pm7crAkVSgKbP8oLb6488eqqYcr17OmDasOwaYNA-3h")
 				.build();
@@ -44,13 +44,17 @@ public class Conversion
 			      .accept("audio/mp3")
 			      .voice("en-US_MichaelV2Voice")
 			      .build();
+			  
+			  System.out.println("====2");
 
 			  InputStream inputStream = textToSpeech.synthesize(synthesizeOptions).execute();
 			  in = inputStream;
+			  System.out.println("====3"+in);
 			  	  
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
+		System.out.println("====4" + in);
 		return in;
 	}
 }

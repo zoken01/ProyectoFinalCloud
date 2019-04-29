@@ -22,7 +22,6 @@ public class Traductor
 			return translate(translate(palabra,sourceModel,"en",conversational),"en",destModel,conversational); //translate to english, then to dest
 
 		LanguageTranslator languageTranslator = new LanguageTranslator("2019-04-09");
-		//languageTranslator.setUsernameAndPassword("f9517b48-edbb-4d41-a984-9333637a96bb","vdMRqsy1jOFV");
 		
 		IamOptions iamOptions = new IamOptions.Builder()
 				  .apiKey("UB12ufk08DhdX8DbVsmHaHd77THH2Vg-m2BN7Kdd3clh")
@@ -38,10 +37,8 @@ public class Traductor
 		 .addText(palabra)
 		 .modelId(model)
 		 .build();
-
-		TranslationResult translationResult = languageTranslator.translate(translateOptions).execute();
 		
-//		System.out.println(translationResult);
+		TranslationResult translationResult = languageTranslator.translate(translateOptions).execute();
 
 		String traduccionJSON = translationResult.toString();
 		JsonParser parser = new JsonParser();
